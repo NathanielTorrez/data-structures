@@ -10,6 +10,24 @@ var Stack = function() {
 return someInstance
 };
 
-var stackMethods = {};
+var stackMethods = {
+  size: function(){
+
+    if (this.count < 0) {
+      return 0;
+    }
+    return this.count
+  },
+  push: function(value){
+    this.count++
+    this.storage[this.count] = value;
+  },
+  pop: function(){
+    var lastElement = this.storage[this.count];
+    delete this.storage[this.count];
+    this.count--;
+    return lastElement
+  }
+};
 
 
