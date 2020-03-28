@@ -5,14 +5,11 @@ var Stack = function() {
   var someInstance = Object.create(stackMethods)
   someInstance.count = 0
   someInstance.storage = {}
-
-
-return someInstance
+  return someInstance
 };
 
 var stackMethods = {
   size: function(){
-
     if (this.count < 0) {
       return 0;
     }

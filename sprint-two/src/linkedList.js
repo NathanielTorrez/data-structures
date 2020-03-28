@@ -28,6 +28,7 @@ var LinkedList = function() {
          list.head = newNode;
          list.tail = newNode;
      } else {
+        list.tail.next = newNode
         list.tail = newNode;
      }
   };
@@ -43,24 +44,32 @@ var LinkedList = function() {
 
   };
 
-  list.contains = function(target) {
-  //   //returns boolean reflecting whether or not the passed-in value is in the linked list
-    if (list.head === null) {
-      return false;
+  list.contains = function (target) {
+    //   //returns boolean reflecting whether or not the passed-in value is in the linked list
+    //   if (list.head === null) {
+    //     return false;
+    //   }
+    //   if(currentNode.value === target) {
+    //     return true;
+    //   } else {
+    //     currentNode = currentNode.next;
+    //   }
+    //    list.contains(currentNode);
+    //    return false
+    var i = list.head
+    while (i !== null) {
+      if (i.value === target) {
+        return true
+      } else { i = i.next }
     }
-    if(currentNode.value === target) {
-      return true;
-    } else {
-      currentNode = currentNode.next;
-    }
-     list.contains(currentNode);
-     return false
+    return false
   };
 
   return list;
 };
 
 
+// [head] -> [2] -> [3] -> [tail]
 
 
 
