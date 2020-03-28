@@ -4,9 +4,7 @@ var Tree = function(value) {
 
   // your code here
   newTree.children = [];  // fix me
-  count = 0;
   _.extend(newTree, treeMethods)
-
   return newTree;
 };
 
@@ -14,12 +12,24 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value) {
   // each of these children will need a count
-  var newChild = this.children[count] = {};
-  newChild.value = value;
-  count++;
+  var newChild = Tree(value);
+  this.children.push(newChild);
 };
 
 treeMethods.contains = function(target) {
+
+  if(this.value === target) {
+    return true;
+  } else {
+    for (var i=0; i<this.children.length; i++){
+      if (this.children[i].value === target){
+        return true;
+      }
+      this.children[i].contains(target)
+    }
+      return false;
+  }
+
 };
 
 
@@ -28,3 +38,5 @@ treeMethods.contains = function(target) {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+
