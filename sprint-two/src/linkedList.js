@@ -12,13 +12,13 @@ var LinkedList = function() {
     // the last node.next(pointer) always points to null
     // value = the new node we want to add
     var newNode = Node(value);
+
      if (list.head === null) {
          list.head = newNode;
-         list.tail = newNode;
      } else {
         list.tail.next = newNode;
-        list.tail = newNode;
      }
+     list.tail = newNode;
   };
 
   list.removeHead = function () {
@@ -29,15 +29,15 @@ var LinkedList = function() {
     delete list.head
     list.head = newHead;
     return lastHeadValue;
-
   };
 
   list.contains = function (target) {
     var i = list.head;
-    while (i !== null) {
+    while (i) {
       if (i.value === target) {
         return true;
-      } else { i = i.next }
+      }
+      i = i.next
     }
     return false;
   };
