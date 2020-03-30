@@ -2,7 +2,7 @@
 
 // Instantiate a new graph
 var Graph = function() {
-  this._nodes = {};
+  this._nodes = {};npom
 };
 
 // Add a node to the graph, passing in the node's value.
